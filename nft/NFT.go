@@ -203,7 +203,6 @@ func (m *MetadataGenerator) MergeItems(metadata *Metadata) error {
 		}
 	}
 	sort.Strings(layers)
-	log.Println(layers)
 	m.ImageMerge.FromLayers(layers...)
 	err := m.ImageMerge.Merge(metadata.TokenId + ".png")
 	if err != nil {
@@ -222,8 +221,6 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string) 
 		MetadataUrl: "",
 		Attributes:  attrs,
 	}
-	str, _ := json.MarshalIndent(dat, "", "\t")
-	log.Println(string(str))
 	err := m.MergeItems(dat)
 	if err != nil {
 		return nil, err
