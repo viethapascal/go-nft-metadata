@@ -1,0 +1,179 @@
+{
+ "collection": "zodiac",
+ "name": "test name",
+ "rarity_level": {
+  "1": 100,
+  "2": 50,
+  "3": 20,
+  "4": 10,
+  "5": 5,
+  "6": 2
+ },
+ "decimal": 2,
+ "trait_list": {
+  "1": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "type": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "2": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "3": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "4": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "5": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "6": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  },
+  "7": {
+   "mandatory": true,
+   "rarity": 2,
+   "value_list": [
+    {
+     "value": "1",
+     "rarity": 2
+    },
+    {
+     "value": "2",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "rarity": 2
+    },
+    {
+     "value": "4",
+     "rarity": 2
+    }
+   ]
+  }
+ }
+}
