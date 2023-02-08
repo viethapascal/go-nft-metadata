@@ -4,7 +4,6 @@ go 1.18
 
 require (
 	cloud.google.com/go/storage v1.29.0
-	github.com/ozankasikci/go-image-merge v0.2.2
 	golang.org/x/oauth2 v0.4.0
 	google.golang.org/api v0.108.0
 )
