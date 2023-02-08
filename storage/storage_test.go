@@ -2,7 +2,7 @@ package storage
 
 import (
 	"fmt"
-	"github.com/go-nft-metadata/image-merge"
+	"github.com/viethapascal/go-nft-metadata/image-merge"
 	"log"
 	"math/rand"
 	"testing"

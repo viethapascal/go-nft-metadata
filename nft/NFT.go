@@ -3,8 +3,8 @@ package nft
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/go-nft-metadata/image-merge"
-	"github.com/go-nft-metadata/storage"
+	"github.com/viethapascal/go-nft-metadata/image-merge"
+	"github.com/viethapascal/go-nft-metadata/storage"
 	"log"
 	"os"
 	"path/filepath"

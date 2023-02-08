@@ -1,4 +1,4 @@
-module github.com/go-nft-metadata
+module github.com/viethapascal/go-nft-metadata
 
 go 1.18
 

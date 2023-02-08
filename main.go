@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-nft-metadata/nft"
-	"github.com/go-nft-metadata/storage"
+	"github.com/viethapascal/go-nft-metadata/nft"
+	"github.com/viethapascal/go-nft-metadata/storage"
 	"io/ioutil"
 	"log"
 	"math/rand"
