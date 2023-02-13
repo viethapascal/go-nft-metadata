@@ -11,7 +11,7 @@ import (
 
 func TestGCSRepository_Write(t *testing.T) {
 	gcs := NewGcsRepository("depoc-storage")
-	merge := image_merge.NewMergeEngine("../assets/PNG/", image_merge.WithWriter(gcs.Write))
+	merge := image_merge.NewMergeEngine("../assets/PNG/", "", image_merge.WithWriter(gcs.WriteImage))
 	merge.Background("bg.png")
 	merge.AddLayer("4_1_1.png")
 	merge.AddLayer("4_2_1.png")

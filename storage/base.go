@@ -14,7 +14,7 @@ import (
 )
 
 type NFTStorage interface {
-	Write(data interface{}, output string) error
+	Write(data []byte, output string) error
 	WriteImage(data *image.RGBA, output string) error
 	Read(path string) ([]byte, error)
 	ReadImage(path string) (image.Image, error)
