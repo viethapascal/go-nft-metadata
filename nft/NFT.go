@@ -211,7 +211,7 @@ func (m *MetadataGenerator) MergeItems(metadata *Metadata) error {
 	return nil
 
 }
-func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string) (*Metadata, error) {
+func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, metadataExt, imageExt string) (*Metadata, error) {
 	attrs := m.GenCombination()
 	dat := &Metadata{
 		Name:        name,
@@ -225,9 +225,9 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string) 
 	if err != nil {
 		return nil, err
 	}
-	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+".json")
-	dat.ImageUrl = filepath.Join(m.CDNPrefix, dat.TokenId+".png")
-	dat.MetadataUrl = filepath.Join(m.CDNPrefix, dat.TokenId+".json")
+	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+metadataExt)
+	dat.ImageUrl = filepath.Join(m.CDNPrefix, dat.TokenId+imageExt)
+	dat.MetadataUrl = filepath.Join(m.CDNPrefix, dat.TokenId+metadataExt)
 	bytes, _ := json.Marshal(dat)
 	err = m.Storage.Write(bytes, metadataPath)
 	if err != nil {
