@@ -5,7 +5,6 @@ import (
 	"cloud.google.com/go/storage"
 	"context"
 	"encoding/base64"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"golang.org/x/oauth2/google"
@@ -143,7 +142,7 @@ func (gcs *GCSRepository) WriteImage(data *image.RGBA, output string) error {
 	return nil
 }
 
-func (gcs *GCSRepository) Write(data interface{}, output string) error {
+func (gcs *GCSRepository) Write(data []byte, output string) error {
 	ctx, cancel := context.WithTimeout(gcs.ctx, time.Second*50)
 	defer cancel()
 	log.Println("write to file:", output)
@@ -160,8 +159,8 @@ func (gcs *GCSRepository) Write(data interface{}, output string) error {
 	// 	return fmt.Errorf("object.Attrs: %v", err)
 	// }
 	// o = o.If(storage.Conditions{GenerationMatch: attrs.Generation})
-	dat, _ := json.Marshal(data)
-	readers := bytes.NewReader(dat)
+	//dat, _ := json.Marshal(data)
+	readers := bytes.NewReader(data)
 	// Upload an object with storage.Writer.
 	wc := o.NewWriter(ctx)
 
