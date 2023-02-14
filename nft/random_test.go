@@ -155,12 +155,12 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 	//log.Println("config:", string(conf))
 	stats := map[string]int{}
 	for i := 0; i < 4; i++ {
-		gen := NewGenerator(nil, 1).UseConfig(config)
+		gen := NewGenerator(nil, 1, "", "").UseConfig(config)
 		attrs := gen.GenCombination()
 		metadata := Metadata{
 			Name:        "test",
 			Description: "test",
-			ImageUrl:    "",
+			Image:       "",
 			MetadataUrl: "",
 			Attributes:  attrs,
 		}

@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"encoding/json"
 	"image"
 	"image/jpeg"
 	"image/png"
@@ -22,9 +21,9 @@ type NFTStorage interface {
 
 type LocalStorage struct{}
 
-func (LocalStorage) Write(data interface{}, output string) error {
-	bytes, _ := json.Marshal(data)
-	err := ioutil.WriteFile(output, bytes, 0644)
+func (LocalStorage) Write(data []byte, output string) error {
+	//bytes, _ := json.Marshal(data)
+	err := ioutil.WriteFile(output, data, 0644)
 	if err != nil {
 		return err
 	}

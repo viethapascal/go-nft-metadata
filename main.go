@@ -55,7 +55,7 @@ func main() {
 	}
 	res, _ := json.MarshalIndent(generator.Config, "", "\t")
 	log.Println(string(res))
-	metadata, err := generator.GenerateMetadata("zodiac", "test zodiac storage", fmt.Sprintf("%d", 1))
+	metadata, err := generator.GenerateMetadata("zodiac", "test zodiac storage", fmt.Sprintf("%d", 1), "", ".png")
 	if err != nil {
 		log.Fatal(err)
 	}

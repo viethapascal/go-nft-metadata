@@ -85,8 +85,9 @@ type Metadata struct {
 	Name        string      `json:"name,omitempty"`
 	TokenId     string      `json:"token_id"`
 	Description string      `json:"description,omitempty"`
-	ImageUrl    string      `json:"image_url,omitempty"`
+	Image       string      `json:"image,omitempty"`
 	MetadataUrl string      `json:"metadata_url,omitempty"`
+	ExternalUrl string      `json:"external_url,omitempty"`
 	Attributes  []Attribute `json:"attributes,omitempty"`
 }
 
@@ -217,7 +218,7 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 		Name:        name,
 		Description: description,
 		TokenId:     tokenId,
-		ImageUrl:    "",
+		Image:       "",
 		MetadataUrl: "",
 		Attributes:  attrs,
 	}
@@ -226,7 +227,7 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 		return nil, err
 	}
 	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+metadataExt)
-	dat.ImageUrl = filepath.Join(m.CDNPrefix, dat.TokenId+imageExt)
+	dat.Image = filepath.Join(m.CDNPrefix, dat.TokenId+imageExt)
 	dat.MetadataUrl = filepath.Join(m.CDNPrefix, dat.TokenId+metadataExt)
 	bytes, _ := json.Marshal(dat)
 	err = m.Storage.Write(bytes, metadataPath)
