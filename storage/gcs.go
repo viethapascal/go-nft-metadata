@@ -142,7 +142,7 @@ func (gcs *GCSRepository) WriteImage(data *image.RGBA, output string) error {
 	return nil
 }
 
-func (gcs *GCSRepository) Write(data []byte, output string) error {
+func (gcs *GCSRepository) Write(data []byte, output string, contentType ContentType) error {
 	ctx, cancel := context.WithTimeout(gcs.ctx, time.Second*50)
 	defer cancel()
 	log.Println("write to file:", output)
@@ -163,6 +163,7 @@ func (gcs *GCSRepository) Write(data []byte, output string) error {
 	readers := bytes.NewReader(data)
 	// Upload an object with storage.Writer.
 	wc := o.NewWriter(ctx)
+	wc.ContentType = string(contentType)
 
 	if _, err := io.Copy(wc, readers); err != nil {
 		return fmt.Errorf("io.Copy: %v", err)

@@ -82,13 +82,13 @@ type ResourceMap struct {
 }
 */
 type Metadata struct {
-	Name        string      `json:"name,omitempty"`
+	Name        string      `json:"name"`
 	TokenId     string      `json:"token_id"`
-	Description string      `json:"description,omitempty"`
-	Image       string      `json:"image,omitempty"`
-	MetadataUrl string      `json:"metadata_url,omitempty"`
-	ExternalUrl string      `json:"external_url,omitempty"`
-	Attributes  []Attribute `json:"attributes,omitempty"`
+	Description string      `json:"description"`
+	Image       string      `json:"image"`
+	MetadataUrl string      `json:"metadata_url"`
+	ExternalUrl string      `json:"external_url"`
+	Attributes  []Attribute `json:"attributes"`
 }
 
 type ValueRarity struct {
@@ -230,7 +230,7 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 	dat.Image = filepath.Join(m.CDNPrefix, dat.TokenId+imageExt)
 	dat.MetadataUrl = filepath.Join(m.CDNPrefix, dat.TokenId+metadataExt)
 	bytes, _ := json.Marshal(dat)
-	err = m.Storage.Write(bytes, metadataPath)
+	err = m.Storage.Write(bytes, metadataPath, storage.JSONTYPE)
 	if err != nil {
 		return nil, err
 	}

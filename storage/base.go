@@ -12,8 +12,14 @@ import (
 	"strings"
 )
 
+type ContentType string
+
+const (
+	JSONTYPE ContentType = "application/json;charset=uft-8"
+)
+
 type NFTStorage interface {
-	Write(data []byte, output string) error
+	Write(data []byte, output string, contentType ContentType) error
 	WriteImage(data *image.RGBA, output string) error
 	Read(path string) ([]byte, error)
 	ReadImage(path string) (image.Image, error)
@@ -21,7 +27,7 @@ type NFTStorage interface {
 
 type LocalStorage struct{}
 
-func (LocalStorage) Write(data []byte, output string) error {
+func (LocalStorage) Write(data []byte, output string, contentType ContentType) error {
 	//bytes, _ := json.Marshal(data)
 	err := ioutil.WriteFile(output, data, 0644)
 	if err != nil {

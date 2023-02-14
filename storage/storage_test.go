@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/viethapascal/go-nft-metadata/image-merge"
 	"log"
@@ -28,6 +29,15 @@ func TestGCSRepository_Write(t *testing.T) {
 
 func TestGCSRepository_Read(t *testing.T) {
 	gcs := NewGcsRepository("depoc-public")
-	gcs.Read("nfts/collections/zodiac/config.json")
+	data := map[string]interface{}{
+		"greeting": "someone",
+	}
+	bytes_, _ := json.Marshal(data)
+	rand.Seed(time.Now().UnixNano())
+	id := rand.Uint64()
+	err := gcs.Write(bytes_, fmt.Sprintf("test/%d", id), JSONTYPE)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
