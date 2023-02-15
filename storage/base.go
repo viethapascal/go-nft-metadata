@@ -16,6 +16,7 @@ type ContentType string
 
 const (
 	JSONTYPE ContentType = "application/json;charset=uft-8"
+	IMAGEPNG ContentType = "image/png"
 )
 
 type NFTStorage interface {

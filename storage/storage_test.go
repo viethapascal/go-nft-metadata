@@ -6,6 +6,8 @@ import (
 	"github.com/viethapascal/go-nft-metadata/image-merge"
 	"log"
 	"math/rand"
+	url2 "net/url"
+	"path/filepath"
 	"testing"
 	"time"
 )
@@ -40,4 +42,18 @@ func TestGCSRepository_Read(t *testing.T) {
 		log.Fatal(err)
 	}
 
+}
+
+func TestName(t *testing.T) {
+	u, _ := url2.Parse("https:/cdn.depoc.io/")
+	u2 := url2.URL{
+		Scheme: "https",
+		Host:   u.Host,
+		Path:   filepath.Join("static", "fiel asdf"),
+	}
+	log.Println(u2.String())
+	log.Println(u.String())
+	log.Println(u.Scheme)
+	filePath := filepath.Join(u.Host, "iamge/asdf")
+	log.Println(filePath)
 }

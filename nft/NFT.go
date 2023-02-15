@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"github.com/viethapascal/go-nft-metadata/image-merge"
 	"github.com/viethapascal/go-nft-metadata/storage"
+	"github.com/viethapascal/go-nft-metadata/utils"
 	"log"
 	"os"
 	"path/filepath"
@@ -228,9 +229,10 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 	}
 	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+metadataExt)
 	dat.Image = filepath.Join(m.CDNPrefix, dat.TokenId+imageExt)
-	dat.MetadataUrl = filepath.Join(m.CDNPrefix, dat.TokenId+metadataExt)
-	bytes, _ := json.Marshal(dat)
-	err = m.Storage.Write(bytes, metadataPath, storage.JSONTYPE)
+	dat.Image = utils.BuildUrl(m.CDNPrefix, dat.TokenId+imageExt)
+	dat.MetadataUrl = utils.BuildUrl(m.CDNPrefix, dat.TokenId+metadataExt)
+	b, _ := json.Marshal(dat)
+	err = m.Storage.Write(b, metadataPath, storage.JSONTYPE)
 	if err != nil {
 		return nil, err
 	}
