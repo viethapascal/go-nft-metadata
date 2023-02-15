@@ -131,8 +131,7 @@ func NewGenerator(storage storage.NFTStorage, metadata MetadataType, assetPath s
 	merge := image_merge.NewMergeEngine(assetPath, targetPath,
 		image_merge.WithReader(storage.ReadImage),
 		image_merge.WithWriter(storage.WriteImage))
-	cdn := filepath.Join(os.Getenv("APP_CDN_PREFIX"), targetPath)
-	return &MetadataGenerator{Storage: storage, Type: metadata, ImageMerge: merge, AssetPath: assetPath, TargetPath: targetPath, CDNPrefix: cdn}
+	return &MetadataGenerator{Storage: storage, Type: metadata, ImageMerge: merge, AssetPath: assetPath, TargetPath: targetPath, CDNPrefix: os.Getenv("APP_CDN_PREFIX")}
 }
 
 func (m *MetadataGenerator) GenCombination() []Attribute {
@@ -228,11 +227,10 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 		return nil, err
 	}
 	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+metadataExt)
-	dat.Image = filepath.Join(m.CDNPrefix, m.TargetPath, dat.TokenId+imageExt)
 	dat.Image = utils.BuildUrl(m.CDNPrefix, m.TargetPath, dat.TokenId+imageExt)
-	dat.MetadataUrl = utils.BuildUrl(m.CDNPrefix, dat.TokenId+imageExt)
-	bytes, _ := json.Marshal(dat)
-	err = m.Storage.Write(bytes, metadataPath, storage.JSONTYPE)
+	dat.MetadataUrl = utils.BuildUrl(m.CDNPrefix, m.TargetPath, dat.TokenId+imageExt)
+	b, _ := json.Marshal(dat)
+	err = m.Storage.Write(b, metadataPath, storage.JSONTYPE)
 	if err != nil {
 		return nil, err
 	}
