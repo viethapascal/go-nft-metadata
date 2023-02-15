@@ -228,7 +228,7 @@ func (m *MetadataGenerator) GenerateMetadata(name, description, tokenId string, 
 	}
 	metadataPath := filepath.Join(m.TargetPath, dat.TokenId+metadataExt)
 	dat.Image = utils.BuildUrl(m.CDNPrefix, m.TargetPath, dat.TokenId+imageExt)
-	dat.MetadataUrl = utils.BuildUrl(m.CDNPrefix, m.TargetPath, dat.TokenId+imageExt)
+	dat.MetadataUrl = utils.BuildUrl(m.CDNPrefix, m.TargetPath, dat.TokenId)
 	b, _ := json.Marshal(dat)
 	err = m.Storage.Write(b, metadataPath, storage.JSONTYPE)
 	if err != nil {
