@@ -2,6 +2,7 @@ package nft
 
 import (
 	"encoding/json"
+	"github.com/viethapascal/go-nft-metadata/storage"
 	"io/ioutil"
 	"log"
 	"testing"
@@ -61,8 +62,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 				Rarity:    1,
 				ValueList: []ValueRarity{
 					{
-						Value:  "1",
-						Rarity: 2,
+						Value:        "1",
+						DisplayValue: "default",
+						Rarity:       2,
 					},
 					{
 						Value:  "2",
@@ -79,8 +81,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 				Rarity:    1,
 				ValueList: []ValueRarity{
 					{
-						Value:  "1",
-						Rarity: 3,
+						Value:        "1",
+						DisplayValue: "default",
+						Rarity:       3,
 					},
 					{
 						Value:  "2",
@@ -97,8 +100,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 				Rarity:    1,
 				ValueList: []ValueRarity{
 					{
-						Value:  "1",
-						Rarity: 3,
+						Value:        "1",
+						DisplayValue: "default",
+						Rarity:       3,
 					},
 					{
 						Value:  "2",
@@ -115,8 +119,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 				Rarity:    3,
 				ValueList: []ValueRarity{
 					{
-						Value:  "1",
-						Rarity: 3,
+						Value:        "1",
+						DisplayValue: "default",
+						Rarity:       3,
 					},
 					{
 						Value:  "2",
@@ -133,8 +138,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 				Rarity:    4,
 				ValueList: []ValueRarity{
 					{
-						Value:  "1",
-						Rarity: 3,
+						Value:        "1",
+						DisplayValue: "default",
+						Rarity:       3,
 					},
 					{
 						Value:  "2",
@@ -154,8 +160,9 @@ func TestMetadataGenerator_GenCombination(t *testing.T) {
 	//conf, _ := json.MarshalIndent(config, "", "\t")
 	//log.Println("config:", string(conf))
 	stats := map[string]int{}
+	localStorage := storage.LocalStorage{}
 	for i := 0; i < 4; i++ {
-		gen := NewGenerator(nil, 1, "", "").UseConfig(config)
+		gen := NewGenerator(localStorage, 1, "", "").UseConfig(config)
 		attrs := gen.GenCombination()
 		metadata := Metadata{
 			Name:        "test",

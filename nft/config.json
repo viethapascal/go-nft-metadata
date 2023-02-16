@@ -1,200 +1,117 @@
 {
- "collection": "zodiac",
+ "collection": "test",
  "name": "test name",
  "rarity_level": {
   "1": 100,
-  "2": 50,
+  "2": 30,
   "3": 20,
   "4": 10,
-  "5": 5,
-  "6": 2
+  "5": 1,
+  "6": 0
  },
  "decimal": 2,
  "trait_list": {
-  "background": {
+  "clothes": {
+   "mandatory": false,
+   "rarity": 3,
+   "value_list": [
+    {
+     "value": "1",
+     "display_value": "default",
+     "rarity": 3
+    },
+    {
+     "value": "2",
+     "display_value": "",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "display_value": "",
+     "rarity": 2
+    }
+   ]
+  },
+  "hand": {
    "mandatory": true,
    "rarity": 1,
    "value_list": [
     {
-     "value": "default",
-     "rarity": 1
+     "value": "1",
+     "display_value": "default",
+     "rarity": 3
+    },
+    {
+     "value": "2",
+     "display_value": "",
+     "rarity": 2
+    },
+    {
+     "value": "3",
+     "display_value": "",
+     "rarity": 2
     }
    ]
   },
-  "name": {
+  "head": {
    "mandatory": true,
    "rarity": 1,
    "value_list": [
     {
-     "value": "cat",
-     "rarity": 1
-    },
-    {
-     "value": "mouse",
-     "rariry": 1
-    }
-   ]
-  },
-  "1": {
-   "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
      "value": "1",
+     "display_value": "default",
      "rarity": 2
     },
     {
      "value": "2",
+     "display_value": "",
      "rarity": 2
     },
     {
      "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
+     "display_value": "",
      "rarity": 2
     }
    ]
   },
-  "type": {
+  "leg": {
    "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
-     "value": "4",
-     "rarity": 2
-    }
-   ]
-  },
-  "2": {
-   "mandatory": true,
-   "rarity": 2,
+   "rarity": 1,
    "value_list": [
     {
      "value": "1",
-     "rarity": 2
+     "display_value": "default",
+     "rarity": 3
     },
     {
      "value": "2",
+     "display_value": "",
      "rarity": 2
     },
     {
      "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
+     "display_value": "",
      "rarity": 2
     }
    ]
   },
-  "3": {
-   "mandatory": true,
-   "rarity": 2,
+  "shoes": {
+   "mandatory": false,
+   "rarity": 4,
    "value_list": [
     {
      "value": "1",
-     "rarity": 2
+     "display_value": "default",
+     "rarity": 3
     },
     {
      "value": "2",
+     "display_value": "",
      "rarity": 2
     },
     {
      "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
-     "rarity": 2
-    }
-   ]
-  },
-  "4": {
-   "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
-     "value": "1",
-     "rarity": 2
-    },
-    {
-     "value": "2",
-     "rarity": 2
-    },
-    {
-     "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
-     "rarity": 2
-    }
-   ]
-  },
-  "5": {
-   "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
-     "value": "1",
-     "rarity": 2
-    },
-    {
-     "value": "2",
-     "rarity": 2
-    },
-    {
-     "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
-     "rarity": 2
-    }
-   ]
-  },
-  "6": {
-   "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
-     "value": "1",
-     "rarity": 2
-    },
-    {
-     "value": "2",
-     "rarity": 2
-    },
-    {
-     "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
-     "rarity": 2
-    }
-   ]
-  },
-  "7": {
-   "mandatory": true,
-   "rarity": 2,
-   "value_list": [
-    {
-     "value": "1",
-     "rarity": 2
-    },
-    {
-     "value": "2",
-     "rarity": 2
-    },
-    {
-     "value": "3",
-     "rarity": 2
-    },
-    {
-     "value": "4",
+     "display_value": "",
      "rarity": 2
     }
    ]

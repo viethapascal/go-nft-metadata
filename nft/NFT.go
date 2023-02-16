@@ -24,9 +24,10 @@ const (
 type RarityString string
 
 type Attribute struct {
-	TraitType string      `json:"trait_type,omitempty"`
-	Value     interface{} `json:"value,omitempty"`
-	//Rarity int
+	TraitType    string      `json:"trait_type"`
+	Value        interface{} `json:"value"`
+	DisplayValue string      `json:"display_value"`
+	Rarity       uint        `json:"rarity"`
 }
 
 func (a Attribute) StringValue() string {
@@ -93,8 +94,9 @@ type Metadata struct {
 }
 
 type ValueRarity struct {
-	Value  string `json:"value"`
-	Rarity uint   `json:"rarity"`
+	Value        string `json:"value"`
+	DisplayValue string `json:"display_value"`
+	Rarity       uint   `json:"rarity"`
 }
 type CollectionTrait struct {
 	Mandatory bool          `json:"mandatory"`
@@ -152,13 +154,13 @@ func (m *MetadataGenerator) GenCombination() []Attribute {
 	selectedTraits := g1.ResultArr
 	// Generate value
 	for _, name := range selectedTraits {
-		g2 := &RandomGenerator[string, uint]{Decimal: 2}
+		g2 := &RandomGenerator[ValueRarity, uint]{Decimal: 2}
 		for _, val := range m.Config.TraitList[name].ValueList {
 			rarity := m.Config.RarityLevel[val.Rarity]
-			g2.AddChoice(NewChoice(val.Value, rarity))
+			g2.AddChoice(NewChoice(val, rarity))
 		}
 		value := g2.PickOne(false)
-		attrs = append(attrs, Attribute{name, value})
+		attrs = append(attrs, Attribute{name, value.Value, value.DisplayValue, value.Rarity})
 	}
 	return attrs
 }

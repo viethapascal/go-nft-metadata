@@ -73,18 +73,22 @@
    "value_list": [
     {
      "value": "1",
-     "rarity": 2
+     "rarity": 2,
+     "display_value": "value 1"
     },
     {
      "value": "2",
-     "rarity": 2
+     "rarity": 2,
+     "display_value": "value 2"
     },
     {
      "value": "3",
-     "rarity": 2
+     "rarity": 2,
+     "display_value": "value 3"
     },
     {
      "value": "4",
+     "display_value": "value 4",
      "rarity": 2
     }
    ]
@@ -95,11 +99,13 @@
    "value_list": [
     {
      "value": "1",
-     "rarity": 2
+     "rarity": 2,
+     "display_value": "value 1"
     },
     {
      "value": "2",
-     "rarity": 2
+     "rarity": 2,
+     "display_value": "value 2"
     },
     {
      "value": "3",
