@@ -3,6 +3,7 @@ package nft
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/viethapascal/go-nft-metadata/image-merge"
 	"github.com/viethapascal/go-nft-metadata/storage"
 	"github.com/viethapascal/go-nft-metadata/utils"
@@ -27,7 +28,7 @@ type Attribute struct {
 	TraitType    string      `json:"trait_type"`
 	Value        interface{} `json:"value"`
 	DisplayValue string      `json:"display_value"`
-	Rarity       uint        `json:"rarity"`
+	Rarity       string      `json:"rarity"`
 }
 
 func (a Attribute) StringValue() string {
@@ -154,13 +155,15 @@ func (m *MetadataGenerator) GenCombination() []Attribute {
 	selectedTraits := g1.ResultArr
 	// Generate value
 	for _, name := range selectedTraits {
-		g2 := &RandomGenerator[ValueRarity, uint]{Decimal: 2}
+		g2 := &RandomGenerator[ValueRarity, uint]{Decimal: m.Config.Decimal}
 		for _, val := range m.Config.TraitList[name].ValueList {
 			rarity := m.Config.RarityLevel[val.Rarity]
 			g2.AddChoice(NewChoice(val, rarity))
 		}
 		value := g2.PickOne(false)
-		attrs = append(attrs, Attribute{name, value.Value, value.DisplayValue, value.Rarity})
+		//rarity := float64(m.Config.RarityLevel[value.Rarity]) / math.Pow10(int(g2.Decimal))
+		stringRarity := fmt.Sprintf("%d", m.Config.RarityLevel[value.Rarity])
+		attrs = append(attrs, Attribute{name, value.Value, value.DisplayValue, stringRarity})
 	}
 	return attrs
 }

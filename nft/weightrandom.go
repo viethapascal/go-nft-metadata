@@ -21,10 +21,10 @@ type RandomGenerator[T any, W uint] struct {
 	WeightSum W
 	ResultArr []T
 	Result    *Choice[T, W]
-	Decimal   int
+	Decimal   uint8
 }
 
-func NewPicker[T any, W uint](t T, decimal int) *RandomGenerator[T, W] {
+func NewPicker[T any, W uint](t T, decimal uint8) *RandomGenerator[T, W] {
 	return &RandomGenerator[T, W]{Decimal: decimal}
 }
 
